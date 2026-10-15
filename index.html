@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BUCÁ — Lo que buscas, más cerca de ti.">
+  <title>BUCÁ | Negocios locales</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-strip"></div>
+
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#inicio" aria-label="BUCÁ inicio">
+      <span class="brand-mark">b</span>
+      <span>BUCÁ</span>
+    </a>
+
+    <nav class="nav-links" id="primaryNavigation" aria-label="Navegación principal">
+      <a class="active" href="#inicio">Inicio</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#negocios">Negocios</a>
+      <a href="#negocios" id="favoritesLink">Favoritos</a>
+      <a href="#perfil" id="profileLink" hidden>Perfil</a>
+      <a href="#nosotros">Nosotros</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="location-btn" id="locationBtn" type="button">Bucaramanga</button>
+      <button class="icon-btn" id="notificationBtn" type="button" aria-label="Notificaciones">🔔</button>
+      <button class="primary-btn small" id="loginBtn" type="button">Acceder</button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNavigation">
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"> BUCARAMANGA Y ÁREA METROPOLITANA</span>
+          <h1>Todo lo que buscas,<br><span>en un solo lugar.</span></h1>
+          <p class="hero-slogan">Apoya lo local, impulsa lo nuestro.</p>
+        </div>
+
+        <div class="search-panel reveal">
+          <div class="search-row">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="search" aria-label="Buscar negocios" placeholder="¿Qué estás buscando?">
+            <button class="search-location" id="searchLocationBtn" type="button" aria-label="Filtrar por zona">Bucaramanga</button>
+            <button class="search-btn" id="searchBtn" type="button">Buscar</button>
+          </div>
+          <div class="quick-searches">
+            <button data-search="restaurante">Restaurantes</button>
+            <button data-search="cafetería">Cafeterías</button>
+            <button data-search="tapicería">Tapicerías</button>
+            <button data-search="artesanía">Artesanías</button>
+            <button data-search="peluquería">Peluquerías</button>
+            <button data-search="ropa">Tiendas de ropa</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-brand">BUCÁ</div>
+    </section>
+
+    <section class="section categories-section" id="categorias">
+      <div class="section-heading reveal">
+        <div>
+          <span class="section-kicker">EXPLORA</span>
+          <h2>Encuentra exactamente lo que necesitas</h2>
+        </div>
+        <a href="#negocios">Ver todas →</a>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="content-layout" id="negocios">
+      <div class="main-column">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-kicker"> DESTACADOS</span>
+            <h2>Negocios destacados</h2>
+          </div>
+          <span class="result-count" id="resultCount" aria-live="polite"></span>
+        </div>
+
+        <div class="business-grid" id="businessGrid"></div>
+
+        <div class="section-heading second-heading reveal">
+          <div>
+            <span class="section-kicker"> TENDENCIA</span>
+            <h2>Los más buscados</h2>
+          </div>
+        </div>
+        <div class="business-grid" id="trendingGrid"></div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="side-card register-card reveal">
+          <div class="side-icon yellow">⌖</div>
+          <h3>¿Tienes un negocio?</h3>
+          <p>Haz parte de BUCÁ y lleva tu emprendimiento a más personas.</p>
+          <button class="outline-btn" id="registerBtn"> Registrar mi negocio</button>
+        </div>
+
+        <div class="side-card filters-card reveal">
+          <div class="side-title">Filtros de búsqueda</div>
+
+          <label for="categoryFilter">Categoría</label>
+          <select id="categoryFilter">
+            <option value="all">Todas las categorías</option>
+          </select>
+
+          <label for="zoneFilter">Zona</label>
+          <select id="zoneFilter">
+            <option value="all">Todas las zonas</option>
+            <option value="Bucaramanga">Bucaramanga</option>
+            <option value="Floridablanca">Floridablanca</option>
+            <option value="Girón">Girón</option>
+            <option value="Piedecuesta">Piedecuesta</option>
+          </select>
+
+          <label for="sortFilter">Ordenar por</label>
+          <select id="sortFilter">
+            <option value="relevance">Más relevantes</option>
+            <option value="rating">Mayor calificación</option>
+            <option value="name">Nombre A-Z</option>
+          </select>
+
+          <button class="primary-btn full" id="applyFilters" type="button">⌕ Aplicar filtros</button>
+        </div>
+
+        <div class="side-card support-card reveal">
+          <div class="support-icon">♡</div>
+          <h3>Apoya lo local</h3>
+          <p>Cada búsqueda, cada clic y cada visita puede ayudar a que un emprendimiento siga creciendo.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section profile-section" id="perfil" hidden>
+      <div class="profile-heading">
+        <div>
+          <span class="section-kicker">TU CUENTA</span>
+          <h2 id="profileName">Mi perfil</h2>
+          <p id="profileEmail" class="profile-email"></p>
+        </div>
+        <button class="outline-btn logout-btn" id="logoutBtn" type="button">Cerrar sesión</button>
+      </div>
+      <div class="profile-tabs" role="tablist" aria-label="Secciones del perfil">
+        <button class="profile-tab active" type="button" role="tab" id="favoritesTab" aria-selected="true" aria-controls="profileGrid" data-profile-tab="favorites">Favoritos</button>
+        <button class="profile-tab" type="button" role="tab" id="historyTab" aria-selected="false" aria-controls="profileGrid" data-profile-tab="history">Historial</button>
+      </div>
+      <div class="business-grid profile-grid" id="profileGrid" role="tabpanel" aria-live="polite"></div>
+    </section>
+
+    <section class="cta-section" id="nosotros">
+      <div>
+        <span class="section-kicker">BUCÁ</span>
+        <h2>Lo que buscas,<br><span>más cerca de ti.</span></h2>
+        <p>Una plataforma pensada para conectar a las personas con los negocios que ya existen en nuestra ciudad.</p>
+      </div>
+      <button class="primary-btn" id="ctaRegister">Quiero registrar mi negocio →</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <div class="brand">
+        <span class="brand-mark">b</span>
+        <span>BUCÁ</span>
+      </div>
+      <p>Lo que buscas, más cerca de ti.</p>
+    </div>
+    <div class="footer-about">
+      <h2>Nosotros</h2>
+      <p>BUCÁ es una plataforma digital creada para facilitar la búsqueda y el descubrimiento de negocios y emprendimientos locales en Bucaramanga. Reúne en un solo lugar información sobre diferentes establecimientos, sus productos, servicios, ubicaciones y medios de contacto. Al mismo tiempo, ofrece a las pequeñas empresas una oportunidad para aumentar su visibilidad, llegar a nuevos clientes y fortalecer su presencia digital.</p>
+    </div>
+    <span class="copyright">© 2026 BUCÁ</span>
+  </footer>
+
+  <div class="modal" id="businessModal" role="dialog" aria-modal="true" aria-labelledby="businessModalTitle" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="close-btn" type="button" data-close="businessModal" aria-label="Cerrar detalle">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card form-card">
+      <button class="close-btn" type="button" data-close="registerModal" aria-label="Cerrar formulario">×</button>
+      <span class="section-kicker">HAZ PARTE DE BUCÁ</span>
+      <h2 id="registerTitle">Registra tu negocio</h2>
+      <p>Este formulario es una demostración del prototipo. Más adelante puede conectarse a una base de datos.</p>
+      <form id="registerForm">
+        <input required aria-label="Nombre del negocio" placeholder="Nombre del negocio">
+        <input required type="text" aria-label="Categoría del negocio" placeholder="Categoría">
+        <input required type="tel" aria-label="WhatsApp o teléfono" placeholder="WhatsApp o teléfono">
+        <input required aria-label="Dirección del negocio" placeholder="Dirección">
+        <textarea rows="3" aria-label="Descripción del negocio" placeholder="Cuéntanos brevemente qué ofreces"></textarea>
+        <button class="primary-btn full" type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card form-card auth-card">
+      <button class="close-btn" type="button" data-close="authModal" aria-label="Cerrar acceso">×</button>
+      <span class="section-kicker">TU ESPACIO EN BUCÁ</span>
+      <h2 id="authTitle">Inicia sesión</h2>
+      <p id="authNotice">Acceso de demostración: no valida cuentas con un servidor y nunca guarda tu contraseña.</p>
+      <div class="auth-tabs" role="tablist" aria-label="Acceso a la cuenta">
+        <button class="auth-tab active" type="button" role="tab" aria-selected="true" data-auth-mode="login">Iniciar sesión</button>
+        <button class="auth-tab" type="button" role="tab" aria-selected="false" data-auth-mode="register">Crear cuenta</button>
+      </div>
+      <form id="loginForm" autocomplete="on">
+        <label for="loginEmail">Correo electrónico</label>
+        <input id="loginEmail" type="email" name="email" autocomplete="email" required placeholder="tu@correo.com">
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" name="password" autocomplete="current-password" required placeholder="Contraseña">
+        <button class="primary-btn full" type="submit">Acceder</button>
+      </form>
+      <form id="accountForm" autocomplete="on" hidden>
+        <label for="accountName">Nombre</label>
+        <input id="accountName" type="text" name="name" autocomplete="name" required placeholder="Tu nombre">
+        <label for="accountEmail">Correo electrónico</label>
+        <input id="accountEmail" type="email" name="email" autocomplete="email" required placeholder="tu@correo.com">
+        <label for="accountPassword">Contraseña de demostración</label>
+        <input id="accountPassword" type="password" name="password" autocomplete="new-password" minlength="6" required placeholder="Mínimo 6 caracteres">
+        <button class="primary-btn full" type="submit">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
